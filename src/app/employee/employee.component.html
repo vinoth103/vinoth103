@@ -1,0 +1,39 @@
+<nav class="navbar navbar-linght bg-primary">
+
+  <div class="container-fluid">
+    <h1 style="color:aliceblue"> APIDATAS</h1>
+    <div class="d-flex">
+
+    </div>
+  </div>
+</nav>
+
+<table class="table mt-2" [formGroup] ='formvalue' style="padding: -5.5rem 12.5rem" >
+  <thead>
+    <tr>
+      <th scope="col">Name</th>
+      <th scope="col">NativeName</th>
+      <th scope="col">Numeric code</th>
+      <th scope="col">Population</th>
+      <th scope="col">Capital</th>
+      <th scope="col">Subregion</th>
+
+      <th scope="col">Flag</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let row of Employees | paginate: {itemsPerPage:10,currentPage:p};">
+        <td>{{row.name}}</td>
+        <td>{{row.nativeName}}</td>
+        <td>{{row.numericCode}}</td>
+        <td>{{row.population}}</td>
+        <td>{{row.capital}}</td>
+        <td>{{row.subregion}}</td>
+        <td>{{row.flag}}</td>
+        </tr>
+      </tbody>
+
+  </table>
+  <pagination-controls  (pageChange)="p = $event" style="display:inline-flex;"></pagination-controls>
+
+
